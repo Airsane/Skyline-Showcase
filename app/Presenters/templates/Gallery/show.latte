@@ -1,0 +1,27 @@
+{block content}
+<div class="photo-gallery">
+    <div class="container">
+
+        <div class="intro">
+            <h2 class="text-center">{$gallery->getName()}</h2>
+        </div>
+        <div class="row photos">
+            {foreach $gallery->getImages() as $image}
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <a href="{$image->getApiUrl()}" data-lightbox="photos"><img class="img-fluid" src="{$image->getApiUrl()}" alt=""></a>
+                </div>
+            {/foreach}
+        </div>
+        <div class="row mt-5">
+            {foreach $gallery->getVideos() as $video}
+                <div class="col-sm-6 col-md-4 col-lg-3 item">
+                    <video class="img-fluid" controls="">
+                        <source src={$video->getApiUrl()}type="video/mp4">
+                    </video>
+                </div>
+
+            {/foreach}
+        </div>
+
+    </div>
+</div>
